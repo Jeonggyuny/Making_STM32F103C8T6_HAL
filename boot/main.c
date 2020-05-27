@@ -1,4 +1,5 @@
 #include "stdint.h"
+#include "stdio.h"
 
 #include "HAL_USART.h"
 
@@ -6,8 +7,11 @@ void main(void)
 {
 	HAL_USART2_init();
 
-	uint32_t i = 1000;
+	uint32_t i = 100;
 	while (i--) {
 		HAL_USART2_put_char('N');
 	}
+	HAL_USART2_put_char('\n');
+
+	putstr("Hello World!\n");
 }

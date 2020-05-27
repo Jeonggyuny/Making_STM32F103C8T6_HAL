@@ -14,16 +14,19 @@ TARGET_BIN = build/main.bin
 ASM_SRCS = $(wildcard boot/*.s)
 ASM_OBJS = $(patsubst boot/%.s, build/%.os, $(ASM_SRCS))
 
-VPATH = boot \
-	hal/STM32F103C8T6
+VPATH = boot			\
+	hal/STM32F103C8T6	\
+	lib
 
 C_SRCS  = $(notdir $(wildcard boot/*.c))
 C_SRCS += $(notdir $(wildcard hal/STM32F103C8T6/*.c))
+C_SRCS += $(notdir $(wildcard lib/*.c))
 C_OBJS  = $(patsubst %.c, build/%.o, $(C_SRCS))
 
 INC_DIRS = -I include	\
-	   -I hal	\
-	   -I hal/STM32F103C8T6
+	   -I hal		\
+	   -I hal/STM32F103C8T6	\
+	   -I lib
 
 CFLAGS = -mthumb -c -g -std=c11
 
