@@ -14,4 +14,11 @@ void main(void)
 	HAL_USART2_put_char('\n');
 
 	putstr("Hello World!\n");
+
+	i = 100;
+	while (i--) {
+		uint8_t ch = HAL_USART2_get_char();
+	
+		HAL_USART2_put_char(ch);
+	}
 }
