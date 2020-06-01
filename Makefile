@@ -23,7 +23,7 @@ C_SRCS += $(notdir $(wildcard hal/STM32F103C8T6/*.c))
 C_SRCS += $(notdir $(wildcard lib/*.c))
 C_OBJS  = $(patsubst %.c, build/%.o, $(C_SRCS))
 
-INC_DIRS = -I include	\
+INC_DIRS = -I include		\
 	   -I hal		\
 	   -I hal/STM32F103C8T6	\
 	   -I lib

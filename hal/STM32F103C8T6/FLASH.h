@@ -1,5 +1,5 @@
-#ifndef HAL_STM32F103C8T6_FLASH_ACR_H_
-#define HAL_STM32F103C8T6_FLASH_ACR_H_
+#ifndef HAL_STM32F103C8T6_FLASH_H_
+#define HAL_STM32F103C8T6_FLASH_H_
 
 /* Flash access control register */
 typedef union FLASH_ACR
@@ -21,5 +21,5 @@ typedef struct FLASH
 
 #define FLASH_BASE_ADDRESS 0x40022000
 
-#endif /* HAL_STM32F103C8T6_FLASH_ACR_H_ */
+#endif /* HAL_STM32F103C8T6_FLASH_H_ */
 

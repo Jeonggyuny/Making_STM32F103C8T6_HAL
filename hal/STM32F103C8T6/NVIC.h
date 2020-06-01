@@ -1,0 +1,177 @@
+#ifndef HAL_STM32F103C8T6_INTERRUPT_H_
+#define HAL_STM32F103C8T6_INTERRUPT_H_
+
+/* Interrupt set-enable registers */
+typedef union _NVIC_ISERx {
+	uint32_t all;
+	struct {
+		uint32_t SETENA:32;	// 31:0
+	} bits;
+} _NVIC_ISERx_t;
+
+/* Interrupt clear-enable registers */
+typedef union _NVIC_ICERx {
+	uint32_t all;
+	struct {
+		uint32_t CLRENA:32;	// 31:0
+	} bits;
+} _NVIC_ICERx_t;
+
+/* Interrupt set-pending registers */
+typedef union _NVIC_ISPRx {
+	uint32_t all;
+	struct {
+		uint32_t SETPEND:32;	// 31:0
+	} bits;
+} _NVIC_ISPRx_t;
+
+/* Interrupt clear-pending registers */
+typedef union _NVIC_ICPRx {
+	uint32_t all;
+	struct {
+		uint32_t CLRPEND:32;	// 31:0
+	} bits;
+} _NVIC_ICPRx_t;
+
+/* Interrupt active bit registers */
+typedef union _NVIC_IABRx {
+	uint32_t all;
+	struct {
+		uint32_t ACTIVE:32;	// 31:0
+	} bits;
+} _NVIC_IABRx_t;
+
+/* Interrupt priority registers */
+typedef union _NVIC_IPRx {
+	uint8_t all;
+	struct {
+		uint32_t IP:8;		// 7:0
+	} bits;
+} _NVIC_IPRx_t;
+
+/* Software trigger interrupt register */
+typedef union _NVIC_STIR {
+	uint32_t all;
+	struct {
+		uint32_t INTID:9;	// 8:0
+		uint32_t Reserved:23;	// 31:9
+	} bits;
+} _NVIC_STIR_t;
+
+typedef struct NVIC_ISERx
+{
+	_NVIC_ISERx_t	nvic_iser0;	// 0x0
+	_NVIC_ISERx_t	nvic_iser1;	// 0x4
+	_NVIC_ISERx_t	nvic_iser2;	// 0x8
+} NVIC_ISERx_t;
+
+typedef struct NVIC_ICERx
+{
+	_NVIC_ICERx_t	nvic_icer0;	// 0x0
+	_NVIC_ICERx_t	nvic_icer1;	// 0x4
+	_NVIC_ICERx_t	nvic_icer2;	// 0x8
+} NVIC_ICERx_t;
+
+typedef struct NVIC_ISPRx
+{
+	_NVIC_ISPRx_t	nvic_ispr0;	// 0x0
+	_NVIC_ISPRx_t	nvic_ispr1;	// 0x4
+	_NVIC_ISPRx_t	nvic_ispr2;	// 0x8
+} NVIC_ISPRx_t;
+
+typedef struct NVIC_ICPRx
+{
+	_NVIC_ICPRx_t	nvic_icpr0;	// 0x0
+	_NVIC_ICPRx_t	nvic_icpr1;	// 0x4
+	_NVIC_ICPRx_t	nvic_icpr2;	// 0x8
+} NVIC_ICPRx_t;
+
+typedef struct NVIC_IABRx
+{
+	_NVIC_IABRx_t	nvic_iabr0;	// 0x0
+	_NVIC_IABRx_t	nvic_iabr1;	// 0x4
+	_NVIC_IABRx_t	nvic_iabr2;	// 0x8
+} NVIC_IABRx_t;
+
+typedef struct NVIC_STIR
+{
+	_NVIC_STIR_t	nvic_stir;	// 0x0
+} NVIC_STIR_t;
+
+#define NVIC_ISERx_BASE_ADDRESS 0xE000E100
+#define NVIC_ICERx_BASE_ADDRESS 0xE000E180
+#define NVIC_ISPRx_BASE_ADDRESS 0xE000E200
+#define NVIC_ICPRx_BASE_ADDRESS 0xE000E280
+#define NVIC_IABRx_BASE_ADDRESS 0xE000E300
+
+#define NVIC_IPR00_BASE_ADDRESS 0xE000E400
+#define NVIC_IPR01_BASE_ADDRESS 0xE000E401
+#define NVIC_IPR02_BASE_ADDRESS 0xE000E402
+#define NVIC_IPR03_BASE_ADDRESS 0xE000E403
+#define NVIC_IPR04_BASE_ADDRESS 0xE000E404
+#define NVIC_IPR05_BASE_ADDRESS 0xE000E405
+#define NVIC_IPR06_BASE_ADDRESS 0xE000E406
+#define NVIC_IPR07_BASE_ADDRESS 0xE000E407
+#define NVIC_IPR08_BASE_ADDRESS 0xE000E408
+#define NVIC_IPR09_BASE_ADDRESS 0xE000E409
+#define NVIC_IPR10_BASE_ADDRESS 0xE000E40A
+#define NVIC_IPR11_BASE_ADDRESS 0xE000E40B
+
+#define NVIC_IPR12_BASE_ADDRESS 0xE000E410
+#define NVIC_IPR13_BASE_ADDRESS 0xE000E411
+#define NVIC_IPR14_BASE_ADDRESS 0xE000E412
+#define NVIC_IPR15_BASE_ADDRESS 0xE000E413
+#define NVIC_IPR16_BASE_ADDRESS 0xE000E414
+#define NVIC_IPR17_BASE_ADDRESS 0xE000E415
+#define NVIC_IPR18_BASE_ADDRESS 0xE000E416
+#define NVIC_IPR19_BASE_ADDRESS 0xE000E417
+#define NVIC_IPR20_BASE_ADDRESS 0xE000E418
+#define NVIC_IPR21_BASE_ADDRESS 0xE000E419
+#define NVIC_IPR22_BASE_ADDRESS 0xE000E41A
+#define NVIC_IPR23_BASE_ADDRESS 0xE000E41B
+
+#define NVIC_IPR24_BASE_ADDRESS 0xE000E420
+#define NVIC_IPR25_BASE_ADDRESS 0xE000E421
+#define NVIC_IPR26_BASE_ADDRESS 0xE000E422
+#define NVIC_IPR27_BASE_ADDRESS 0xE000E423
+#define NVIC_IPR28_BASE_ADDRESS 0xE000E424
+#define NVIC_IPR29_BASE_ADDRESS 0xE000E425
+#define NVIC_IPR30_BASE_ADDRESS 0xE000E426
+#define NVIC_IPR31_BASE_ADDRESS 0xE000E427
+#define NVIC_IPR32_BASE_ADDRESS 0xE000E428
+#define NVIC_IPR33_BASE_ADDRESS 0xE000E429
+#define NVIC_IPR34_BASE_ADDRESS 0xE000E42A
+#define NVIC_IPR35_BASE_ADDRESS 0xE000E42B
+
+#define NVIC_IPR36_BASE_ADDRESS 0xE000E430
+#define NVIC_IPR37_BASE_ADDRESS 0xE000E431
+#define NVIC_IPR38_BASE_ADDRESS 0xE000E432
+#define NVIC_IPR39_BASE_ADDRESS 0xE000E433
+#define NVIC_IPR40_BASE_ADDRESS 0xE000E434
+#define NVIC_IPR41_BASE_ADDRESS 0xE000E435
+#define NVIC_IPR42_BASE_ADDRESS 0xE000E436
+#define NVIC_IPR43_BASE_ADDRESS 0xE000E437
+#define NVIC_IPR44_BASE_ADDRESS 0xE000E438
+#define NVIC_IPR45_BASE_ADDRESS 0xE000E439
+#define NVIC_IPR46_BASE_ADDRESS 0xE000E43A
+#define NVIC_IPR47_BASE_ADDRESS 0xE000E43B
+
+#define NVIC_IPR48_BASE_ADDRESS 0xE000E440
+#define NVIC_IPR49_BASE_ADDRESS 0xE000E441
+#define NVIC_IPR50_BASE_ADDRESS 0xE000E442
+#define NVIC_IPR51_BASE_ADDRESS 0xE000E443
+#define NVIC_IPR52_BASE_ADDRESS 0xE000E444
+#define NVIC_IPR53_BASE_ADDRESS 0xE000E445
+#define NVIC_IPR54_BASE_ADDRESS 0xE000E446
+#define NVIC_IPR55_BASE_ADDRESS 0xE000E447
+#define NVIC_IPR56_BASE_ADDRESS 0xE000E448
+#define NVIC_IPR57_BASE_ADDRESS 0xE000E449
+#define NVIC_IPR58_BASE_ADDRESS 0xE000E44A
+#define NVIC_IPR59_BASE_ADDRESS 0xE000E44B
+
+#define NVIC_STIR_BASE_ADDRESS  0xE000EF00
+
+#define NVIC_POSITION_BEGIN 0
+#define NVIC_POSITION_END 59
+
+#endif /* HAL_STM32F103C8T6_INTERRUPT_H_ */
