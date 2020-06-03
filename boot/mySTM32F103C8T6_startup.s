@@ -44,7 +44,7 @@
 .word	_Dummy_Handler	/* 25. TIM1_UP_Handler */
 .word	_Dummy_Handler	/* 26. TIM1_TRG_COM_Handler */
 .word	_Dummy_Handler	/* 27. TIM1_CC_Handler */
-.word	_Dummy_Handler	/* 28. TIM2_Handler */
+.word	TIM2_Handler	/* 28. TIM2_Handler */
 .word	_Dummy_Handler	/* 29. TIM3_Handler */
 .word	_Dummy_Handler	/* 30. TIM4_Handler */
 .word	_Dummy_Handler	/* 31. I2C1_EV_Handler */

@@ -6,6 +6,8 @@
 
 extern volatile USART_t * USART2;
 
+void USART2_Handler(void);
+
 void HAL_USART2_init(void)
 {
 	USART2->usart_cr1.bits.UE = 0b1;	// USART enable
@@ -66,4 +68,12 @@ uint8_t HAL_USART2_get_char(void)
 	uint32_t data = USART2->usart_dr.bits.DR;
 
 	return (uint8_t)(data & 0x000000FF);
+}
+
+/* Interrupt test */
+void USART2_Handler(void)
+{
+	uint8_t ch = HAL_USART2_get_char();
+
+	HAL_USART2_put_char(ch);
 }

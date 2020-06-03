@@ -1,19 +1,13 @@
 #include "stdint.h"
 #include "stdio.h"
+#include "stdlib.h"
 
 #include "HAL_FLASH.h"
 #include "HAL_RCC.h"
 #include "HAL_GPIOx.h"
 #include "HAL_USART.h"
 #include "HAL_Interrupt.h"
-
-/* Interrupt test */
-void USART2_Handler(void)
-{
-	uint8_t ch = HAL_USART2_get_char();
-
-	HAL_USART2_put_char(ch);
-}
+#include "HAL_Timer.h"
 
 void main(void)
 {
@@ -21,13 +15,14 @@ void main(void)
 	HAL_RCC_init();
 	HAL_GPIOA_init();
 	HAL_USART2_init();
+	HAL_Timer_init();
 
 	/* HAL_USART2_put_char() test */
 	uint32_t i = 100;
 	while (i--) {
 		HAL_USART2_put_char('N');
 	}
-	HAL_USART2_put_char('\n');
+	// HAL_USART2_put_char('\n');
 
 	/* putstr() test */
 	putstr("Hello World!\n");
@@ -46,8 +41,14 @@ void main(void)
 
 	/* Interrupt test */
 	HAL_Interrupt_enable(38);	// 38: USART2 NVIC Postion
+	HAL_Interrupt_enable(28);	// 28: TIM2 NVIC Position
 
-	while (1);
+	/* Timer test */
+	while (1) {
+		debug_printf("current count: %u\n", HAL_Timer_get_1ms_counter());
+
+		delay(1000);
+	}
 
 	/* HAL_USART2_get_char() test */
 	i = 100;
