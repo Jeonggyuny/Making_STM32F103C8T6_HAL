@@ -22,7 +22,7 @@ void main(void)
 	while (i--) {
 		HAL_USART2_put_char('N');
 	}
-	// HAL_USART2_put_char('\n');
+	HAL_USART2_put_char('\n');
 
 	/* putstr() test */
 	putstr("Hello World!\n");
@@ -42,7 +42,20 @@ void main(void)
 	/* Interrupt test */
 	HAL_Interrupt_enable(38);	// 38: USART2 NVIC Postion
 	HAL_Interrupt_enable(28);	// 28: TIM2 NVIC Position
+	
+	/* HAL_GPIOA_digital_write() & HAL_GPIOA_digital_read() test */
+	while (1) {
+		while (HAL_GPIOA_digital_read(6) == HIGH) {
+			HAL_GPIOA_digital_write(5, HIGH);
 
+			delay(250);
+
+			HAL_GPIOA_digital_write(5, LOW);
+
+			delay(250);
+		}
+	}
+	
 	/* Timer test */
 	while (1) {
 		debug_printf("current count: %u\n", HAL_Timer_get_1ms_counter());
