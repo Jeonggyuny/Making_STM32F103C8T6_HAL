@@ -15,7 +15,9 @@ void main(void)
 	HAL_RCC_init();
 	HAL_GPIOA_init();
 	HAL_USART2_init();
+	HAL_Interrupt_init();
 	HAL_Timer_init();
+	HAL_Ext_Interrupt_init();
 
 	/* HAL_USART2_put_char() test */
 	uint32_t i = 100;
@@ -39,9 +41,10 @@ void main(void)
 	debug_printf("dec = %u, hex = %x\n", 0xFF, 0xFF);
 	debug_printf("print zero %u\n", 0);
 
-	/* Interrupt test */
+	/* Interrupt & External interrupt test */
 	HAL_Interrupt_enable(38);	// 38: USART2 NVIC Postion
 	HAL_Interrupt_enable(28);	// 28: TIM2 NVIC Position
+	HAL_Interrupt_enable(23);	// 23: EXTI9_5 NVIC Position
 	
 	/* HAL_GPIOA_digital_write() & HAL_GPIOA_digital_read() test */
 	while (1) {

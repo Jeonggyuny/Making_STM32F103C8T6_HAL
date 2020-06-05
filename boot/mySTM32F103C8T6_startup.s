@@ -39,7 +39,7 @@
 .word	_Dummy_Handler	/* 20. USB_LP_CAN_RX0_Handler */
 .word	_Dummy_Handler	/* 21. CAN_RX1_Handler */
 .word	_Dummy_Handler	/* 22. CAN_SCE_Handler */
-.word	_Dummy_Handler	/* 23. EXIT9_5_Handler */
+.word	EXTI7_Handler	/* 23. EXTI9_5_Handler */
 .word	_Dummy_Handler	/* 24. TIM1_BRK_Handler */
 .word	_Dummy_Handler	/* 25. TIM1_UP_Handler */
 .word	_Dummy_Handler	/* 26. TIM1_TRG_COM_Handler */
@@ -56,7 +56,7 @@
 .word	_Dummy_Handler	/* 37. USART1_Handler */
 .word	USART2_Handler	/* 38. USART2_Handler */
 .word	_Dummy_Handler	/* 39. USART3_Handler */
-.word	_Dummy_Handler	/* 40. EXIT15_10_Handler */
+.word	_Dummy_Handler	/* 40. EXTI15_10_Handler */
 .word	_Dummy_Handler	/* 41. RTCAlarm_Handler */
 .word	_Dummy_Handler	/* 42. USBWakeup_Handler */
 .word	_Dummy_Handler	/* 43. TIM8_BRK_Handler */
@@ -64,7 +64,7 @@
 .word	_Dummy_Handler	/* 45. TIM8_TRG_COM_Handler */
 .word	_Dummy_Handler	/* 46. TIM8_CC_Handler */
 .word	_Dummy_Handler	/* 47. ADC3_Handler */
-.word	_Dummy_Handler	/* 48.  FSMC_Handler */
+.word	_Dummy_Handler	/* 48. FSMC_Handler */
 .word	_Dummy_Handler	/* 49. SDIO_Handler */
 .word	_Dummy_Handler	/* 50. TIM5_Handler */
 .word	_Dummy_Handler	/* 51. SPI3_Handler */
