@@ -39,7 +39,7 @@
 .word	_Dummy_Handler	/* 20. USB_LP_CAN_RX0_Handler */
 .word	_Dummy_Handler	/* 21. CAN_RX1_Handler */
 .word	_Dummy_Handler	/* 22. CAN_SCE_Handler */
-.word	EXTI7_Handler	/* 23. EXTI9_5_Handler */
+.word	EXTI6_Handler	/* 23. EXTI9_5_Handler */
 .word	_Dummy_Handler	/* 24. TIM1_BRK_Handler */
 .word	_Dummy_Handler	/* 25. TIM1_UP_Handler */
 .word	_Dummy_Handler	/* 26. TIM1_TRG_COM_Handler */

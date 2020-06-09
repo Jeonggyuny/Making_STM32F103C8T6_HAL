@@ -13,11 +13,17 @@ void HAL_GPIOA_init(void)
 	GPIOA->gpiox_crl.bits.MODE3 = 0b00;	// Port A3/RX mode bit (Input mode)
 	GPIOA->gpiox_crl.bits.CNF3 = 0b01;	// Port A3/RX configuration bit (Floating input)
 
-	GPIOA->gpiox_crl.bits.MODE5 = 0b11;	// Port A5/GPIOx mode bit (Output mode, max speed 50MHz)
-	GPIOA->gpiox_crl.bits.CNF5 = 0b00;	// Port A5/GPIOx configuration bit (General purpose output push-pull)
+	GPIOA->gpiox_crl.bits.MODE4 = 0b11;	// Port A4/GPIOx mode bit (Output mode, max speed 50MHz)
+	GPIOA->gpiox_crl.bits.CNF4 = 0b00;	// Port A4/GPIOx configuration bit (General purpose output push-pull)
 
-	GPIOA->gpiox_crl.bits.MODE6 = 0b00;	// Port A6/GPIOx mode bit (Input mode)
-	GPIOA->gpiox_crl.bits.CNF6 = 0b01;	// Port A6/GPIOx configuration bit (Floating input)
+	GPIOA->gpiox_crl.bits.MODE5 = 0b00;	// Port A5/GPIOx mode bit (Input mode)
+	GPIOA->gpiox_crl.bits.CNF5 = 0b01;	// Port A5/GPIOx configuration bit (Floating input)
+
+	GPIOA->gpiox_crl.bits.MODE6 = 0b00;	// Port A6/EXTI mode bit (Input mode)
+	GPIOA->gpiox_crl.bits.CNF6 = 0b01;	// Port A6/EXTI configuration bit (Floating input)
+
+	GPIOA->gpiox_crl.bits.MODE7 = 0b00;	// Port A7/ADC mode bit (Input mode)
+	GPIOA->gpiox_crl.bits.CNF7 = 0b00;	// Port A7/ADC mode configuration bit (Analog mode)
 }
 
 void HAL_GPIOA_digital_write(uint32_t pin, bool value)

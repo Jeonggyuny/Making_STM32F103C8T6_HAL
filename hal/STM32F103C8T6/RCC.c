@@ -39,10 +39,12 @@ void HAL_RCC_init(void)
 	
 	RCC->rcc_cfgr.bits.HPRE = 0b0000;	   // AHB prescaler (SYSCLK not divided)
 	RCC->rcc_cfgr.bits.PPRE1 = 0b100;	   // APB1 low-speed prescaler (HCLK divided by 2)
-	RCC->rcc_cfgr.bits.PPRE2 = 0b000;	   // APB2 high-speed prescaler (HCLK not diveded))
+	RCC->rcc_cfgr.bits.PPRE2 = 0b000;	   // APB2 high-speed prescaler (HCLK not diveded)
+	RCC->rcc_cfgr.bits.ADCPRE = 0b10;	   // ADC prescaler (PCLK2 divided by 6)
 	
 	RCC->rcc_apb2enr.bits.IOPAEN = 0b1;	   // IO port A clock enable
 	RCC->rcc_apb2enr.bits.AFIOEN = 0b1;	   // Alternate function IO clock enable
+	RCC->rcc_apb2enr.bits.ADC1EN = 0b1;	   // ADC 1 interface clock enable
 	RCC->rcc_apb1enr.bits.USART2EN = 0b1;	   // USART2 clock enable
 	RCC->rcc_apb1enr.bits.TIM2EN = 0b1;	   // TIM2 timer clock enable
 }

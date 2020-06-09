@@ -8,6 +8,7 @@
 #include "HAL_USART.h"
 #include "HAL_Interrupt.h"
 #include "HAL_Timer.h"
+#include "HAL_ADC.h"
 
 void main(void)
 {
@@ -18,6 +19,7 @@ void main(void)
 	HAL_Interrupt_init();
 	HAL_Timer_init();
 	HAL_Ext_Interrupt_init();
+	HAL_ADC1_init();
 
 	/* HAL_USART2_put_char() test */
 	uint32_t i = 100;
@@ -48,14 +50,17 @@ void main(void)
 	
 	/* HAL_GPIOA_digital_write() & HAL_GPIOA_digital_read() test */
 	while (1) {
-		while (HAL_GPIOA_digital_read(6) == HIGH) {
-			HAL_GPIOA_digital_write(5, HIGH);
+		while (HAL_GPIOA_digital_read(5) == HIGH) {
+			HAL_GPIOA_digital_write(4, HIGH);
 
 			delay(250);
 
-			HAL_GPIOA_digital_write(5, LOW);
+			HAL_GPIOA_digital_write(4, LOW);
 
 			delay(250);
+
+			/* ADC test */
+			debug_printf("%u\n", HAL_ADC1_analog_read());
 		}
 	}
 	
